@@ -18,6 +18,7 @@ import {
   clearCanvas, drawBorder, drawToken, drawDice, drawSquare,
   drawHUD, drawGameOver,
 } from '@engine/render';
+import { drawTouchOverlay } from '@engine/touch';
 
 // ── Board Constants ─────────────────────────────────────────────────
 
@@ -638,6 +639,9 @@ game.system('render', function renderSystem(world, _dt) {
       subtitle: 'Press R to restart',
     });
   }
+
+  // Touch overlay (mobile)
+  drawTouchOverlay(ctx, ctx.canvas.width, ctx.canvas.height, { tapLabel: 'SPD' });
 });
 
 // ── Board Drawing ───────────────────────────────────────────────────
